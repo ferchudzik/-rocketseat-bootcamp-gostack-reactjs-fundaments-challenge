@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 interface ContainerProps {
   size?: 'small' | 'large';
@@ -17,11 +18,18 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      display: flex;
+      height: 40px;
+
       a {
         color: #fff;
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+
+        &.active {
+          border-bottom: 2px solid #ff872c;
+        }
 
         & + a {
           margin-left: 32px;
